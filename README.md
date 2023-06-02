@@ -11,3 +11,10 @@ This repo contains an exercise intended for Mobile Engineers.
 1. This exercise is meant to drive a conversation.
 1. Please invest only enough time needed to demonstrate your approach to problem solving, code design, etc.
 3. Within reason, treat your solution as if it would become a production system.
+
+
+## Assumptions
+1. duplicates are allowed at the time you add a new breed to the main collection
+2. no minimun deployment target required
+3. no landscape orientation support
+4. works only for iphone

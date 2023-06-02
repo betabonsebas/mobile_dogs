@@ -33,6 +33,8 @@
 		1BD5A8DB2A295DF5000DE380 /* BreedResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5A8DA2A295DF5000DE380 /* BreedResultTableViewController.swift */; };
 		1BD5A8DE2A29610D000DE380 /* BreedResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5A8DD2A29610D000DE380 /* BreedResultViewModel.swift */; };
 		1BD5A8E12A29A091000DE380 /* BreedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5A8E02A29A091000DE380 /* BreedViewModel.swift */; };
+		1BD5A8E42A29B30D000DE380 /* BreedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5A8E32A29B30D000DE380 /* BreedDetailViewController.swift */; };
+		1BD5A8E92A29B48C000DE380 /* BreedDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5A8E82A29B48C000DE380 /* BreedDetailCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		1BD5A8DA2A295DF5000DE380 /* BreedResultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedResultTableViewController.swift; sourceTree = "<group>"; };
 		1BD5A8DD2A29610D000DE380 /* BreedResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedResultViewModel.swift; sourceTree = "<group>"; };
 		1BD5A8E02A29A091000DE380 /* BreedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedViewModel.swift; sourceTree = "<group>"; };
+		1BD5A8E32A29B30D000DE380 /* BreedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailViewController.swift; sourceTree = "<group>"; };
+		1BD5A8E82A29B48C000DE380 /* BreedDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +179,7 @@
 		1BD5A8B62A27DE56000DE380 /* Dogs */ = {
 			isa = PBXGroup;
 			children = (
+				1BD5A8E22A29B276000DE380 /* Detail */,
 				1BD5A8DF2A29A077000DE380 /* Cell */,
 				1BD5A8DC2A29606E000DE380 /* Search */,
 				1BD5A8892A27B7C8000DE380 /* DogsViewController.swift */,
@@ -248,6 +253,15 @@
 				1BD5A8E02A29A091000DE380 /* BreedViewModel.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		1BD5A8E22A29B276000DE380 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				1BD5A8E32A29B30D000DE380 /* BreedDetailViewController.swift */,
+				1BD5A8E82A29B48C000DE380 /* BreedDetailCoordinator.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,6 +396,7 @@
 			files = (
 				1BD5A8C82A284516000DE380 /* StoryboardInstaintiable.swift in Sources */,
 				1BD5A8D92A293712000DE380 /* BreedCollectionViewCell.swift in Sources */,
+				1BD5A8E92A29B48C000DE380 /* BreedDetailCoordinator.swift in Sources */,
 				1BD5A8B92A280946000DE380 /* Response.swift in Sources */,
 				1BD5A8C62A2844FE000DE380 /* DogsCoordinator.swift in Sources */,
 				1BD5A8E12A29A091000DE380 /* BreedViewModel.swift in Sources */,
@@ -390,6 +405,7 @@
 				1BD5A8DB2A295DF5000DE380 /* BreedResultTableViewController.swift in Sources */,
 				1BD5A8C12A284370000DE380 /* Provider.swift in Sources */,
 				1BD5A8862A27B7C8000DE380 /* AppDelegate.swift in Sources */,
+				1BD5A8E42A29B30D000DE380 /* BreedDetailViewController.swift in Sources */,
 				1BD5A8BF2A2842F3000DE380 /* Network+Error.swift in Sources */,
 				1BD5A8D32A2903DF000DE380 /* DogsViewModel.swift in Sources */,
 				1BD5A8C32A2843A7000DE380 /* NetworkProvider.swift in Sources */,

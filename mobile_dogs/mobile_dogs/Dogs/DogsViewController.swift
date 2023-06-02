@@ -126,14 +126,16 @@ extension DogsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as! BreedCollectionViewCell
-        cell.setupViewModel(viewModel: viewModel.cellViewModel(for: indexPath.row))
+        cell.setupViewModel(viewModel: viewModel.cellViewModel(for: indexPath.item))
         return cell
     }
 }
 
 extension DogsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let breed = viewModel.breeds[indexPath.item]
+        let coordinator = BreedDetailCoordinator(presenter: coordinator.presenter, breed: breed)
+        coordinator.navigate()
     }
 }
 
