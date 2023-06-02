@@ -44,6 +44,8 @@ class DogsViewController: UIViewController, StoryboardInstantiable {
         self.title = viewModel.title
         initSearchController()
         configureCollectionView()
+        configureClearButton()
+        configureRandomButton()
         viewModel.$isSearching
             .sink { [weak self] isSearching in
                 if let isSearching = isSearching, !isSearching {
@@ -60,6 +62,34 @@ class DogsViewController: UIViewController, StoryboardInstantiable {
     }
     
     // MARK: - Initialization & configuration
+    
+    private func configureClearButton() {
+        let button = UIButton(type: .custom)
+        button.tintColor = .blue
+        button.setTitleColor(.blue, for: .normal)
+        button.setTitle("Clear All", for: .normal)
+        button.addTarget(self, action: #selector(clearAllAction(_:)), for: .touchUpInside)
+        let clearButton = UIBarButtonItem(customView: button)
+        navigationItem.setRightBarButton(clearButton, animated: false)
+    }
+    
+    @objc func clearAllAction(_ sender: UIButton) {
+        viewModel.clearBreeds()
+    }
+    
+    private func configureRandomButton() {
+        let button = UIButton(type: .custom)
+        button.tintColor = .blue
+        button.setTitleColor(.blue, for: .normal)
+        button.setTitle("Add Random", for: .normal)
+        button.addTarget(self, action: #selector(addRandomAction(_:)), for: .touchUpInside)
+        let clearButton = UIBarButtonItem(customView: button)
+        navigationItem.setLeftBarButton(clearButton, animated: false)
+    }
+    
+    @objc func addRandomAction(_ sender: UIButton) {
+        viewModel.fetchRandomBreed()
+    }
     
     private func configureCollectionView() {
         collectionView.dataSource = self

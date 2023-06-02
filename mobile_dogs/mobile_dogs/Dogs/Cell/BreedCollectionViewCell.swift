@@ -5,10 +5,12 @@
 //  Created by Sebastian Bonilla on 1/06/23.
 //
 
+import Combine
 import UIKit
 
 class BreedCollectionViewCell: UICollectionViewCell {
     
+    private var subscriptions: Set<AnyCancellable> = []
     var viewModel: BreedViewModel!
     
     weak var imageView: UIImageView!
@@ -71,5 +73,17 @@ class BreedCollectionViewCell: UICollectionViewCell {
     
     func setupUI() {
         nameLabel.text = viewModel.name
+        viewModel.fetchimage()
+            .sink { completion in
+                switch completion {
+                case .finished:
+                  break
+                case .failure(let error):
+                  print(error)
+                }
+            } receiveValue: { [weak self] image in
+                self?.imageView.image = image
+            }
+            .store(in: &subscriptions)
     }
 }

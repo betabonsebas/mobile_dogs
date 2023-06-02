@@ -36,6 +36,28 @@ class DogsViewModel: ObservableObject {
             .store(in: &subscriptions)
     }
     
+    func fetchRandomBreed() {
+        provider.fetch(api: BreedAPI.randomBreed)?
+            .map { (result: SingleResponse) in
+                return result.message
+            }.sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                  break
+                case .failure(let error):
+                  print(error)
+                }
+            }, receiveValue: { image in
+                var breedPath = image.split(separator: "/")[3]
+                if breedPath.contains("-") {
+                    breedPath = breedPath.split(separator: "-")[0]
+                }
+                self.breeds.insert(Breed(name: String(breedPath), image: image), at: 0)
+                
+            })
+            .store(in: &subscriptions)
+    }
+    
     func fetchImage(for breed: String) {
         provider.fetch(api: BreedAPI.breed(breed))?
             .map({ (result: SingleResponse) in
@@ -49,9 +71,13 @@ class DogsViewModel: ObservableObject {
                   print(error)
                 }
             }, receiveValue: { [weak self] value in
-                self?.breeds.append(value)
+                self?.breeds.insert(value, at: 0)
             })
             .store(in: &subscriptions)
+    }
+    
+    func clearBreeds() {
+        breeds.removeAll()
     }
     
     func cellViewModel(for index: Int) -> BreedViewModel {
